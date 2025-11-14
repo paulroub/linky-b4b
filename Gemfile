@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3.2"
+gem "jekyll", "~> 4.4"
 gem "nokogiri", "~> 1.18"
 gem "rubocop", "~> 1.71"
 
