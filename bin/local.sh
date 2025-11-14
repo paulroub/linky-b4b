@@ -6,7 +6,7 @@ IFS=$'\n\t'
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$script_dir/.."
 
-source ".venv/calhoun/bin/activate"
+source ".venv/linky-b4b/bin/activate"
 
 python bin/config_local.py
 

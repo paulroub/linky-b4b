@@ -1,12 +1,12 @@
-title: Linky Template
+title: "Brevard Deserves Better: Links"
 subheads:
-    - "Catchy little tagline (one or more)"
+    - "Resources to help fight for public education in Brevard County, Florida."
 
-email: email@example.com
+# email: admin@better4brevard.org
 description: >-
-    A brief description of your site
+    Resources to help fight for public education in Brevard County, Florida.
 baseurl: ""
-url: "https://example.com/"
+url: "https://links.better4brevard.org"
 
 # uncomment and fill in any social IDs you want linked from the top of your page
 
@@ -16,7 +16,7 @@ url: "https://example.com/"
 # cashapp_username: "my_cashapp_username"
 # discord_username: "my_discord_username"
 # github_username: "my_github_username"
-# instagram_username: "my_instagram_username"
+instagram_username: "better4brevard"
 # mastodon_username: "@username@example.host"
 # pinterest_username: "my_pinterest_username"
 # threads_username: "my_threads_username"
@@ -43,10 +43,11 @@ exclude:
     - scripts
 
 linky:
-    body_background: "#030303"
-    body_foreground: "#F0F0F0"
-    button_background: "#f16293"
-    social_button_color: "#ffffff"
+    body_background: "#FFF7EC"
+    body_foreground: "#020100"
+    button_background: "#FDB31A"
+    #    button_foreground: "FDB31A"
+    social_button_color: "#FE472F"
 
 collections:
     - links
