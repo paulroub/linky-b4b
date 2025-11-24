@@ -1,6 +1,7 @@
 # BEGIN PRODUCTION CONFIG
 backend:
-    name: git-gateway
+    name: github
+    repo: paulroub/linky-b4b
     branch: main
 # END PRODUCTION CONFIG
 
