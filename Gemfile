@@ -7,6 +7,6 @@ gem "nokogiri", "~> 1.18"
 gem "rubocop", "~> 1.71"
 
 group :jekyll_plugins do
-    gem "jekyll-theme-linky", "~> 0.2"
+    gem "jekyll-theme-linky", "~> 0.2.8"
     gem "jekyll-feed", "~> 0.12"
 end
