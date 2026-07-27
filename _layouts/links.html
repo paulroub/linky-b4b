@@ -13,12 +13,14 @@ layout: default
                 type="image/png"
                 srcset="{{ '/images/bdblogo-1x.png' | relative_url }} 1x, {{ '/images/bdblogo-2x.png' | relative_url }} 2x"
             />
-            <img
-                class="header-logo"
-                src="{{ '/images/bdblogo-1x.png' | relative_url }}"
-                srcset="{{ '/images/bdblogo-1x.png' | relative_url }} 1x, {{ '/images/bdblogo-2x.png' | relative_url }} 2x"
-                alt="{{ site.title | default: 'Site logo' }}"
-            />
+            <a href="https://brevarddeservesbetter.com">
+                <img
+                    class="header-logo"
+                    src="{{ '/images/bdblogo-1x.png' | relative_url }}"
+                    srcset="{{ '/images/bdblogo-1x.png' | relative_url }} 1x, {{ '/images/bdblogo-2x.png' | relative_url }} 2x"
+                    alt="{{ site.title | default: 'Site logo' }}"
+                />
+            </a>
         </picture>
 
         {%- if site.subheads -%}
