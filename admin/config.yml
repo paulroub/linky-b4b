@@ -54,7 +54,7 @@ collections:
                 label: "Category",
                 name: "category",
                 widget: "select",
-                options: ["Partners", "Resources", "Causes"],
+                options: ["Partners", "Resources", "Causes", "Useful Sources"],
                 required: false,
             }
       sortable_fields: ["priority", "title"]
