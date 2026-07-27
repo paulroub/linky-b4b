@@ -2,9 +2,42 @@
 ---
 
 @use "linky" with (
-  $linky_body_background: {{ site.linky.body_background | default: "#fa0616" }},
-  $linky_body_foreground: {{ site.linky.body_foreground | default: "#f0f0f0" }},
-  $linky_button_background: {{ site.linky.button_background | default: "#f16293" }},
-  $linky_button_foreground: {{ site.linky.button_foreground | default: "#f0f0f0" }},
-  $linky_social_button_color: {{ site.linky.social_button_color | default: "#fff" }}
+    $linky_body_background: {{site.linky.body_background | default: "#fa0616"}},
+    $linky_body_foreground: {{site.linky.body_foreground | default: "#f0f0f0"}},
+    $linky_button_background: {{site.linky.button_background |
+        default: "#f16293"}},
+    $linky_button_foreground: {{site.linky.button_foreground |
+        default: "#f0f0f0"}},
+    $linky_social_button_color: {{site.linky.social_button_color |
+        default: "#fff"}}
 );
+
+:root {
+    --header-block-background: #fff;
+}
+
+.header-block {
+    background-color: var(--header-block-background);
+    color: var(--body-foreground);
+    --social-button-color: var(--body-foreground);
+    margin: 1rem auto 2rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+}
+
+.header-logo-picture {
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.header-logo {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.socials {
+    margin-bottom: 0;
+}

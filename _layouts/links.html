@@ -1,0 +1,141 @@
+---
+layout: default
+---
+
+<div class="link-list">
+    <div class="header-block">
+        <picture class="header-logo-picture">
+            <source
+                type="image/webp"
+                srcset="{{ '/images/bdblogo-1x.webp' | relative_url }} 1x, {{ '/images/bdblogo-2x.webp' | relative_url }} 2x"
+            />
+            <source
+                type="image/png"
+                srcset="{{ '/images/bdblogo-1x.png' | relative_url }} 1x, {{ '/images/bdblogo-2x.png' | relative_url }} 2x"
+            />
+            <img
+                class="header-logo"
+                src="{{ '/images/bdblogo-1x.png' | relative_url }}"
+                srcset="{{ '/images/bdblogo-1x.png' | relative_url }} 1x, {{ '/images/bdblogo-2x.png' | relative_url }} 2x"
+                alt="{{ site.title | default: 'Site logo' }}"
+            />
+        </picture>
+
+        {%- if site.subheads -%}
+        <div class="subheads">
+            {%- for subhead in site.subheads -%}
+            <p>{{ subhead }}</p>
+            {%- endfor -%}
+        </div>
+        {%- endif -%}
+
+        <ul class="socials">
+            {%- if site.tiktok_username -%}
+            <li class="social-link">
+                <a href="https://tiktok.com/@{{ site.tiktok_username }}"
+                    >{% include tiktok-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.github_username -%}
+            <li class="social-link">
+                <a href="https://github.com/{{ site.github_username }}"
+                    >{% include github-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.instagram_username -%}
+            <li class="social-link">
+                <a href="https://instagram.com/{{ site.instagram_username }}"
+                    >{% include instagram-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.email -%}
+            <li class="social-link">
+                <a href="mailto:{{ site.email }}"
+                    >{% include email-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.threads_username -%}
+            <li class="social-link">
+                <a href="https://threads.net/@{{ site.threads_username }}"
+                    >{% include threads-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.pinterest_username -%}
+            <li class="social-link">
+                <a href="https://pinterest.com/{{ site.pinterest_username }}"
+                    >{% include pinterest-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.mastodon_username -%} {% comment %} Be
+            forgiving -- allow for the username to be entered with or without
+            the leading @ {% endcomment %} {% assign parts =
+            site.mastodon_username | split: "@" %} {% if parts.size == 3 %} {%
+            assign parts = parts | shift %} {% endif %}
+            <li class="social-link">
+                <a href="https://{{ parts[1] }}/@{{ parts[0] }}"
+                    >{% include mastodon-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.bluesky_username -%} {% comment %} Be
+            forgiving -- allow bare handle (and add bsky.social) or use as-is if
+            there's a dot {% endcomment %} {% assign parts =
+            site.bluesky_username | split: "." %} {% if parts.size == 1 %} {%
+            assign handle = site.bluesky_username | append: ".bsky.social" %} {%
+            else %} {% assign handle = site.bluesky_username %} {% endif %}
+            <li class="social-link">
+                <a href="https://bsky.app/profile/{{ handle }}"
+                    >{% include bluesky-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.youtube_username -%}
+            <li class="social-link">
+                <a href="https://www.youtube.com/@{{ site.youtube_username }}"
+                    >{% include youtube-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.facebook_username -%}
+            <li class="social-link">
+                <a href="https://www.facebook.com/{{ site.facebook_username }}"
+                    >{% include facebook-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.discord_username -%}
+            <li class="social-link">
+                <a href="https://discord.gg/{{ site.discord_username }}"
+                    >{% include discord-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.telephone_number -%}
+            <li class="social-link">
+                <a href="tel:{{ site.telephone_number }}"
+                    >{% include phone-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.cashapp_username -%}
+            <li class="social-link">
+                <a href="https://cash.app/${{ site.cashapp_username }}"
+                    >{% include cashapp-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%} {%- if site.venmo_username -%}
+            <li class="social-link">
+                <a href="https://venmo.com/u/{{ site.venmo_username }}"
+                    >{% include venmo-logo.svg %}</a
+                >
+            </li>
+            {%- endif -%}
+        </ul>
+    </div>
+
+    {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%} {%- assign uncategorized_links = site.links | where_exp:
+    "link", "link.category == nil" -%} {%- if uncategorized_links.size > 0 -%}
+    {% include link-category.html link_list=uncategorized_links %} {%- endif -%}
+    {%- assign categories = site.links | map: "category" | uniq | where_exp:
+    "category", "category != nil" -%} {%- for category in categories -%} {%-
+    assign categorized_links = site.links | where: "category", category -%} {%-
+    if categorized_links.size > 0 -%} {% include link-category.html
+    link_list=categorized_links title=category %} {%- endif -%} {%- endfor -%}
+    {{ content }}
+</div>
