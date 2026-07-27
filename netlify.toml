@@ -1,2 +1,4 @@
-[build.environment]
-JEKYLL_ENV = "production"
+[build]
+command = "bin/build.sh"
+publish = "_site"
+environment = { JEKYLL_ENV = "production" }
